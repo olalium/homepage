@@ -23,14 +23,10 @@ class NavBar extends Component {
                 </div>
                 <div class="flex-container">
                     <Link to="/linkedIn">
-                        <button className="LinkedIn">
-                            _
-                        </button>
+                        <button className="Logo-button"><i className="fa fa-linkedin"></i></button>
                     </Link>
                     <Link to="/github">
-                        <button className="GitHub">
-                            _
-                        </button>
+                        <button className="Logo-button"><i className="fa fa-github"></i></button>
                     </Link>
                 </div>
             </div>
