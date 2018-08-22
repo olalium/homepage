@@ -1,94 +1,109 @@
 .NavBar {
     text-align: center;
     font-family: 'Montserrat', sans-serif;
-    margin-top: 5%;
+    margin-top: 10%;
     margin-bottom: 0;
+}
+
+.Name {
+    font-size: 65px;
+    color: deepskyblue;
+    margin-top: 0;
+    margin-bottom: -17px;
 }
 
 .Title {
     font-size: 30px;
-    color: gray;
-    margin-top: 0;
-    margin-bottom: 1%;
-}
-
-.Name {
-    font-size: 58px;
-    color: deepskyblue;
+    color: lightgrey;
     margin-top: 0;
     margin-bottom: 0;
 }
 
+.flex-container.logo-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0%;
+    margin-bottom: 2%;
+}
+
+.flex-container.nav-buttons {
+    display: flex;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2%;
+}
+
+.flex-container.nav-button {
+    width: 126px;
+    padding: 9.5px 10px;
+    cursor: default;
+}
+
 .Nav-button {
-    width: 200px;
-    height: 50px;
     background-color: white;
     border: none;
-    color: gray;
-    padding-right: 30px;
-    padding-left: 30px;
-    padding-bottom: 9.5px;
-    padding-top: 9.5px;
+    color: grey;
+    padding: 0px;
+    font-size: 25px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 34px;
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;
+    cursor: pointer;
 }
 
 .Nav-button:hover {
-    background-color: lightgrey; /* Green */
+    text-decoration: underline;
     color: black;
 }
 
-.LinkedIn {
-    width: 200px;
-    height: 50px;
-    background-image: url('../../../img/LinkedInLogo.png');
-    background-size: 80px 19px;
-    background-repeat: no-repeat;
-    background-color: white;
-    background-position: center;
-    border: none;
-    padding-right: 30px;
-    padding-left: 30px;
-    padding-bottom: 9.5px;
-    padding-top: 9.5px;
+.Logo-button-1 {
+    width: 36px;
+    height: 36px;
+    font-size: 20px;
     text-align: center;
-    text-decoration: none;
+    margin: 0px;
+    padding: 0px;
+    border: none;
     display: inline-block;
+    background-color: white;
+    cursor: pointer;
+}
+
+.Logo-button-2 {
+    width: 36px;
+    height: 36px;
+    font-size: 20px;
+    text-align: center;
+    margin: 0px;
+    padding: 0px;
+    border: none;
+    display: inline-block;
+    background-color: white;
+    cursor: pointer;
+}
+
+.fa-linkedin {
+    margin: 0px;
+    color:lightgrey;
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;
-    color: transparent;
 }
 
-.LinkedIn:hover {
-    background-color: lightgrey;
-}
-
-.GitHub {
-    width: 200px;
-    height: 50px;
-    background-image: url('../../../img/GitHubLogo.png');
-    background-size: 71px 19px;
-    background-repeat: no-repeat;
-    background-color: white;
-    background-position: center;
-    border: none;
-    padding-right: 30px;
-    padding-left: 30px;
-    padding-bottom: 9.5px;
-    padding-top: 9.5px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
+.fa-github {
+    margin: 0px;
+    color: lightgrey;
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;
-    color: transparent;
 }
 
-.GitHub:hover {
-    background-color: lightgrey;
+.Logo-button-1:hover .fa-linkedin{
+    color: #0077b2;
 }
 
+.Logo-button-2:hover .fa-github{
+    color: #211F1F;
+}
