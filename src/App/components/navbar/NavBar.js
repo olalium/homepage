@@ -5,32 +5,20 @@ import './NavBar.css';
 
 class NavBar extends Component {
     render() {
+        let navButton1 = "about";
+        let navButton2 = "pictures";
+        let navButton3 = "doc";
+        let name = "OLA LIUM";
+        let title = "Computer Science Engineer";
+
         return (
             <div className="NavBar">
-                <div className="Name">OLA LIUM</div>
-                <div className="Title">Computer Science Engineer</div>
+                <div className="Name">{name}</div>
+                <div className="Title">{title}</div>
                 <div class="flex-container nav-buttons">
-                    <div class="flex-container nav-button">
-                        <Link to="/about">
-                            <button class="Nav-button">
-                                about
-                            </button>
-                        </Link>
-                    </div>
-                    <div className="flex-container nav-button">
-                        <Link to="/pictures">
-                            <button class="Nav-button">
-                                pictures
-                            </button>
-                        </Link>
-                    </div>
-                    <div className="flex-container nav-button">
-                        <Link to="/documentation">
-                            <button className="Nav-button">
-                                doc
-                            </button>
-                        </Link>
-                    </div>
+                    {NavBar.getNavButton(navButton1, "/about")}
+                    {NavBar.getNavButton(navButton2, "/pictures")}
+                    {NavBar.getNavButton(navButton3, "/documentation")}
                 </div>
                 <div class="flex-container logo-buttons">
                     <Link to="/linkedIn">
@@ -41,6 +29,18 @@ class NavBar extends Component {
                     </Link>
                 </div>
             </div>
+        );
+    }
+
+    static getNavButton(buttonName, link) {
+        return(
+        <div class="flex-container nav-button">
+            <Link to= {link}>
+                <button class="Nav-button">
+                    {buttonName}
+                </button>
+            </Link>
+        </div>
         );
     }
 }
