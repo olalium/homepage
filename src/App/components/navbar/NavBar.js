@@ -15,12 +15,12 @@ class NavBar extends Component {
             <div className="NavBar">
                 <div className="Name">{name}</div>
                 <div className="Title">{title}</div>
-                <div class="flex-container nav-buttons">
+                <div className="flex-container nav-buttons">
                     {NavBar.getNavButton(navButton1, "/about")}
                     {NavBar.getNavButton(navButton2, "/pictures")}
                     {NavBar.getNavButton(navButton3, "/documentation")}
                 </div>
-                <div class="flex-container logo-buttons">
+                <div className="flex-container logo-buttons">
                     <Link to="/linkedIn">
                         <button className="Logo-button-1"><i className="fa fa-linkedin"></i></button>
                     </Link>
@@ -34,9 +34,9 @@ class NavBar extends Component {
 
     static getNavButton(buttonName, link) {
         return(
-        <div class="flex-container nav-button">
+        <div className="flex-container nav-button">
             <Link to= {link}>
-                <button class="Nav-button">
+                <button className="Nav-button">
                     {buttonName}
                 </button>
             </Link>
