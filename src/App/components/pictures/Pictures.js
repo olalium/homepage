@@ -16,6 +16,7 @@ class Pictures extends Component {
             .catch(err => console.log(err));
     }
 
+
     callApi = async () => {
         const response = await fetch('/api/picturedata');
         const body = await response.json();
@@ -30,7 +31,7 @@ class Pictures extends Component {
         return tempArray;
     }
 
-    getImageComponents
+
 
     render() {
         return(
@@ -38,8 +39,10 @@ class Pictures extends Component {
                 <NavBar/>
                 <div class="flex-gallery-container">
                     {this.state.pictures.map((picture, i) =>
-                        <div className="flex-picture-container">
-                            <img src={picture} key = {i}/>
+                        <div className="picture-container">
+                            <div className="flex-picture-container">
+                                <img src={picture} key = {i}/>
+                            </div>
                         </div>)}
                 </div>
             </div>
