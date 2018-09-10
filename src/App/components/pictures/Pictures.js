@@ -16,13 +16,6 @@ class Pictures extends Component {
             .catch(err => console.log(err));
     }
 
-    getSecureUrls(jsondata) {
-        var tempArray = [];
-        for (var i = 0; i < jsondata.length; i++)
-            tempArray[i] = jsondata[i].secure_url;
-        return tempArray;
-    }
-
     callApi = async () => {
         const response = await fetch('/api/picturedata');
         const body = await response.json();
@@ -30,24 +23,24 @@ class Pictures extends Component {
         return body;
     };
 
+    getSecureUrls(jsondata) {
+        var tempArray = [];
+        for (var i = 0; i < jsondata.length; i++)
+            tempArray[i] = jsondata[i].secure_url;
+        return tempArray;
+    }
+
+    getImageComponents
 
     render() {
         return(
             <div className="App">
                 <NavBar/>
                 <div class="flex-gallery-container">
-                    <div class="flex-gallery-container flex-picture-container">
-                        <img src={this.state.pictures[0]}/>
-                    </div>
-                    <div className="flex-gallery-container flex-picture-container">
-                        <img src={this.state.pictures[1]}/>
-                    </div>
-                    <div className="flex-gallery-container flex-picture-container">
-                        <img src={this.state.pictures[2]}/>
-                    </div>
-                    <div className="flex-gallery-container flex-picture-container">
-                        <img src={this.state.pictures[3]}/>
-                    </div>
+                    {this.state.pictures.map((picture, i) =>
+                        <div className="flex-picture-container">
+                            <img src={picture} key = {i}/>
+                        </div>)}
                 </div>
             </div>
         );
