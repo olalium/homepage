@@ -1,7 +1,20 @@
 .flex-gallery-container {
     display: flex;
-    width: 90%;
-    margin-left: 5%;
-    margin-right: 5%;
-    justify-content: center;
+    margin-left: 0.5%;
+    margin-right: 0.5%;
+    margin-bottom: 1%;
+    height: 100%;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.flex-picture-container {
+    display: flex;
+    max-width: 49%;
+}
+
+@media (max-width: 600px) {
+    .flex-picture-container {
+        max-width: 99%;
+    }
 }

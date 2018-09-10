@@ -30,12 +30,24 @@ class Pictures extends Component {
         return body;
     };
 
+
     render() {
         return(
             <div className="App">
                 <NavBar/>
                 <div class="flex-gallery-container">
-                    <img src={this.state.pictures[0]}></img>
+                    <div class="flex-gallery-container flex-picture-container">
+                        <img src={this.state.pictures[0]}/>
+                    </div>
+                    <div className="flex-gallery-container flex-picture-container">
+                        <img src={this.state.pictures[1]}/>
+                    </div>
+                    <div className="flex-gallery-container flex-picture-container">
+                        <img src={this.state.pictures[2]}/>
+                    </div>
+                    <div className="flex-gallery-container flex-picture-container">
+                        <img src={this.state.pictures[3]}/>
+                    </div>
                 </div>
             </div>
         );
