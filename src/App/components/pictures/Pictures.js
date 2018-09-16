@@ -16,7 +16,6 @@ class Pictures extends Component {
             .catch(err => console.log(err));
     }
 
-
     callApi = async () => {
         const response = await fetch('/api/picturedata');
         const body = await response.json();
@@ -30,8 +29,6 @@ class Pictures extends Component {
             tempArray[i] = jsondata[i].secure_url;
         return tempArray;
     }
-
-
 
     render() {
         return(
