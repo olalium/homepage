@@ -37,13 +37,15 @@ class Pictures extends Component {
         return(
             <div className="App">
                 <NavBar/>
-                <div class="flex-gallery-container">
-                    {this.state.pictures.map((picture, i) =>
-                        <div className="picture-container">
-                            <div className="flex-picture-container">
-                                <img src={picture} key = {i}/>
-                            </div>
-                        </div>)}
+                <div className="gallery-container">
+                    <div className="flex-gallery-container">
+                        {this.state.pictures.map((picture, i) =>
+                            <div className="picture-container">
+                                <div className="flex-picture-container">
+                                    <img src={picture} key={i}/>
+                                </div>
+                            </div>)}
+                    </div>
                 </div>
             </div>
         );
