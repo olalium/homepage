@@ -1,1 +1,1 @@
-Code for my homepage which can be found at olalium.no
+Code for my homepage, in progress
