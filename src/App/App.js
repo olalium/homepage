@@ -5,6 +5,7 @@ import Home from './components/home/Home';
 import Pictures from "./components/pictures/Pictures";
 import About from "./components/about/About";
 import Documentation from "./components/documentation/Documentation";
+import MoneyMaker from "./components/money-maker/MoneyMaker";
 
 class App extends Component {
 
@@ -19,6 +20,7 @@ class App extends Component {
                     <Route exact path='/github' component={() => window.location = 'https://github.com/olalium'}/>
                     <Route exact path='/pictures' component={Pictures}/>
                     <Route exact path='/about' component={About}/>
+                    <Route exact path='/money' component={MoneyMaker}/>
                 </Switch>
             </div>
         );

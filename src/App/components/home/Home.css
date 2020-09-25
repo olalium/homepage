@@ -1,0 +1,20 @@
+.Home-text {
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 0vh;
+    margin-top: 5vh;
+}
+
+.Home-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.IP-text {
+    text-align: center;
+    font-family: arial, "lucicda console", sans-serif;
+    background-color: black;
+    color: #4af626;
+    margin-top: auto;
+}

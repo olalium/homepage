@@ -1,0 +1,11 @@
+.annualIncome {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;   
+}
+
+.annualIncomeText {
+}
+
+.annualIncomeInput {
+}

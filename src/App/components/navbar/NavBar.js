@@ -13,8 +13,10 @@ class NavBar extends Component {
 
         return (
             <div className="NavBar">
-                <div className="Name">{name}</div>
-                <div className="Title">{title}</div>
+                <Link to="/" className= "Link-no-underline">
+                    <div className="Name">{name}</div>
+                    <div className="Title">{title}</div>
+                </Link>
                 <div className="flex-container nav-buttons">
                     {NavBar.getNavButton(navButton1, "/about")}
                     {NavBar.getNavButton(navButton2, "/pictures")}
@@ -34,14 +36,14 @@ class NavBar extends Component {
 
     static getNavButton(buttonName, link) {
         return(
-        <div className="flex-container nav-button">
-            <Link to= {link}>
-                <button className="Nav-button">
-                    {buttonName}
-                </button>
-            </Link>
-        </div>
-        );
+            <div className="flex-container nav-button">
+                <Link to= {link}>
+                    <button className="Nav-button">
+                        {buttonName}
+                    </button>
+                </Link>
+            </div>
+          );
     }
 }
 export default NavBar;
