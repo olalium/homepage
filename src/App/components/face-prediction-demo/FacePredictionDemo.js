@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import { post } from 'axios';
+import { post, get } from 'axios';
 import NavBar from "../navbar/NavBar"
 import "./FacePredictionDemo.css"
 
@@ -9,17 +9,41 @@ class FacePredictionDemo extends Component {
         this.state = {
             image1: '',
             image2: '',
-            errortext: ''
+            errortext: '',
+            jobstatus: '',
+            id: ''
         };
         this.onFileChange = this.onFileChange.bind(this)
         this.onFormSubmit  = this.onFormSubmit.bind(this)
     }
 
-    // componentDidMount() {
-    //     this.callApi()
-    //         .then(jsondata => this.setState({ pictures: this.getSecureUrls(jsondata) }))
-    //         .catch(err => console.log(err));
-    // }
+    componentWillUnmount() {
+        clearInterval(this.timerID);
+    }
+
+    checkJobStatus() {
+        const url = 'http://127.0.0.1:5000/api/predict/status/' + this.state.id;
+        get(url).then(res => {
+                this.setState({
+                    jobstatus: res.data.status
+                })
+            })
+    }
+
+    callApi() {
+        const url = 'http://127.0.0.1:5000/api/predict'
+        const formData = new FormData();
+        formData.append('image1', this.state.image1)
+        formData.append('image2', this.state.image2)
+        const config = {
+            headers: {
+                'content-type': 'multipart/form-data'
+            }
+        }
+        let res = post(url, formData,config)
+        return res
+    }
+
 
     onFileChange(e) {
         if (e.target.id === '0') {
@@ -44,35 +68,24 @@ class FacePredictionDemo extends Component {
             return
         } else {
             try {
-                console.log("hiii")
                 this.callApi()
                     .then( res => {
-                        console.log("hmmm")
-                        console.log(res)
+                        this.setState({
+                            id: res.data.id
+                        })
+                        this.timerID = setInterval(
+                            () => this.checkJobStatus(),
+                            1000
+                        );
                     })
-                console.log("hooo")
+                
             } catch (e) {
                 this.setState( {
                     errortext: 'something went wrong'
                 })
             }
-            
         }
     }
-
-    callApi() {
-        const url = 'http://127.0.0.1:5000/api/predict'
-        const formData = new FormData();
-        formData.append('image1', this.state.image1)
-        formData.append('image2', this.state.image2)
-        const config = {
-            headers: {
-                'content-type': 'multipart/form-data'
-            }
-        }
-        let res = post(url, formData,config)
-        return res
-    };
 
     render() {
         return(
@@ -84,6 +97,7 @@ class FacePredictionDemo extends Component {
                     <button type='submit'>Upload</button>
                 </form>
                 <div className='ErrorText'>{this.state.errortext}</div>
+                <div className='JobStatus'>{this.state.jobstatus}</div>
             </div>
         );
     }
