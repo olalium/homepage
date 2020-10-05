@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import * as THREE from 'three';
 import { OBJLoader2 } from 'three/examples/jsm/loaders/OBJLoader2.js';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import './ThreeScene.css';
 
 
@@ -24,6 +25,7 @@ class ThreeScene extends Component {
         const color = 0xFFFFFF;
         const intensity = 0.007;
         const light = new THREE.DirectionalLight(color, intensity);
+        
         light.position.set(5, 200, 500);
         scene.add(light);
         scene.add(light.target);
@@ -33,6 +35,8 @@ class ThreeScene extends Component {
         
         renderer.setClearColor('#FFFFFF')
         renderer.setSize(width, height)
+        
+        var controls = new OrbitControls(camera, renderer.domElement);
 
         this.mount.appendChild(renderer.domElement)
         
@@ -55,8 +59,12 @@ class ThreeScene extends Component {
         camera.position.z = 1000
         camera.position.x = 200
         camera.position.y = 10
+
+        controls.update();
+
         var animate = function () {
             requestAnimationFrame( animate );
+            controls.update();
             renderer.render( scene, camera );
         };
 
