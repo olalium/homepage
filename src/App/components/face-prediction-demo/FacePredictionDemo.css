@@ -1,3 +1,15 @@
 .ErrorText {
     color: red;
 }
+
+.InfoText {
+    color: orange;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.JobStatus {
+    color: orange;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}

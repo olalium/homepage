@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import { post, get } from 'axios';
 import NavBar from "../navbar/NavBar"
 import "./FacePredictionDemo.css"
+import ThreeScene from '../three-scene/ThreeScene';
 
 class FacePredictionDemo extends Component {
     constructor() {
@@ -11,7 +12,8 @@ class FacePredictionDemo extends Component {
             image2: '',
             errortext: '',
             jobstatus: '',
-            id: ''
+            id: '',
+            result: ''
         };
         this.onFileChange = this.onFileChange.bind(this)
         this.onFormSubmit  = this.onFormSubmit.bind(this)
@@ -28,6 +30,12 @@ class FacePredictionDemo extends Component {
                     jobstatus: res.data.status
                 })
             })
+        if (this.state.jobstatus === 'success') {
+            clearInterval(this.timerID);
+            this.setState({
+                result: <ThreeScene url={'http://localhost:5000/api/predict/result/' + this.state.id}/>
+            })
+        }
     }
 
     callApi() {
@@ -65,7 +73,8 @@ class FacePredictionDemo extends Component {
             this.setState( {
                 errortext: 'please choose files to upload'
             })
-            return
+            return;
+        
         } else {
             try {
                 this.callApi()
@@ -91,6 +100,7 @@ class FacePredictionDemo extends Component {
         return(
             <div className="App">
                 <NavBar/>
+                <div className='InfoText'>Please upload .png or .jpg file of your face from the front and the side</div>
                 <form onSubmit={this.onFormSubmit}>
                     <input type='file' onChange={this.onFileChange} id='0' />
                     <input type='file' onChange={this.onFileChange} id='1' />
@@ -98,6 +108,7 @@ class FacePredictionDemo extends Component {
                 </form>
                 <div className='ErrorText'>{this.state.errortext}</div>
                 <div className='JobStatus'>{this.state.jobstatus}</div>
+                {this.state.result}
             </div>
         );
     }
