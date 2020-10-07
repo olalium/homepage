@@ -24,7 +24,7 @@ class FacePredictionDemo extends Component {
     }
 
     checkJobStatus() {
-        const url = 'http://127.0.0.1:5000/api/predict/status/' + this.state.id;
+        const url = '/api/predict/status/' + this.state.id;
         get(url).then(res => {
                 this.setState({
                     jobstatus: res.data.status
@@ -33,13 +33,15 @@ class FacePredictionDemo extends Component {
         if (this.state.jobstatus === 'success') {
             clearInterval(this.timerID);
             this.setState({
-                result: <ThreeScene url={'http://localhost:5000/api/predict/result/' + this.state.id}/>
+                result: <ThreeScene url={'api/predict/result/' + this.state.id}/>
             })
+        } else if (this.state.jobstatus === 'error') {
+            clearInterval(this.timerID);
         }
     }
 
     callApi() {
-        const url = 'http://127.0.0.1:5000/api/predict'
+        const url = '/api/predict'
         const formData = new FormData();
         formData.append('image1', this.state.image1)
         formData.append('image2', this.state.image2)
@@ -108,7 +110,7 @@ class FacePredictionDemo extends Component {
                 </form>
                 <div className='ErrorText'>{this.state.errortext}</div>
                 <div className='JobStatus'>{this.state.jobstatus}</div>
-                {this.state.result}
+                <div className='ThreeView'>{this.state.result}</div>
             </div>
         );
     }

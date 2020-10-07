@@ -22,13 +22,16 @@ class ThreeScene extends Component {
             0.1,
             1000
         )
-        const color = 0xFFFFFF;
-        const intensity = 0.007;
-        const light = new THREE.DirectionalLight(color, intensity);
-        
-        light.position.set(5, 200, 500);
-        scene.add(light);
-        scene.add(light.target);
+        // const color = 0xFFFFFF;
+        // const intensity = 0.007;
+        // const light = new THREE.DirectionalLight(color, intensity);
+        // light.position.set(5, 200, 500);
+        // scene.add(light);
+        // scene.add(light.target);
+
+        var light = new THREE.AmbientLight( 0x404040, 0.018); // soft white light
+        scene.add( light );
+        scene.add( light.target );
         
         
         const renderer = new THREE.WebGLRenderer({ antialias: true })
@@ -42,6 +45,8 @@ class ThreeScene extends Component {
         
         function callbackOnLoad( object3d ) {
             scene.add ( object3d );
+            scene.translateX(-200);
+            scene.translateY(-100)
 
             object3d.traverse(node => {
                 if (node.material) {
@@ -56,9 +61,9 @@ class ThreeScene extends Component {
 
         loader.load(this.props.url, callbackOnLoad, null, null, null)
 
-        camera.position.z = 1000
-        camera.position.x = 200
-        camera.position.y = 10
+        camera.position.z = 750
+        camera.position.x = 0
+        camera.position.y = 0
 
         controls.update();
 
@@ -80,7 +85,7 @@ class ThreeScene extends Component {
     return (
         <div
             id="c"
-            style={{ width: '800px', height: '800px' }}
+            style={{ width: '500px', height: '500px' }}
             ref={(mount) => { this.mount = mount }}
         />
     )
