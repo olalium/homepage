@@ -3,6 +3,9 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  background-color: black;
+  font-family: 'Montserrat', sans-serif;
+  color: whitesmoke;
 }
 
 .App-logo {

@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import NavBar from "../navbar/NavBar"
 import "./Pictures.css"
+import Footer from "../footer/Footer";
 
 class Pictures extends Component {
     constructor() {
@@ -33,7 +34,7 @@ class Pictures extends Component {
     render() {
         return(
             <div className="App">
-                <NavBar/>
+                <NavBar />
                 <div className="gallery-container">
                     <div className="flex-gallery-container">
                         {this.state.pictures.map((picture, i) =>
@@ -44,6 +45,7 @@ class Pictures extends Component {
                             </div>)}
                     </div>
                 </div>
+                <Footer/>
             </div>
         );
     }

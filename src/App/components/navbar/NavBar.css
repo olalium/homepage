@@ -1,63 +1,33 @@
 .NavBar {
     text-align: center;
-    font-family: 'Montserrat', sans-serif;
-    padding-top: 10%;
-    margin-bottom: 0;
+    font-family: monospace;
 }
 
-.Name {
-    font-size: 65px;
-    color: deepskyblue;
-    margin-top: 0;
-    margin-bottom: -17px;
+.Top {
+    display: flex;
+    align-items: baseline;
+    font-size: 45px;
+    color: white;
+    text-decoration: none;
+
 }
 
 .Title {
-    font-size: 30px;
-    color: lightgrey;
-    margin-top: 0;
-    margin-bottom: 0;
+    font-size: 24px;
+    color: #4af626;;
 }
 
-.flex-container.logo-buttons {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 0%;
-    margin-bottom: 2%;
-}
-
-.flex-container.nav-buttons {
-    display: flex;
-    cursor: pointer;
-    justify-content: center;
-    align-items: center;
-    margin-top: 2%;
-}
-
-.flex-container.nav-button {
-    width: 126px;
-    padding: 9.5px 10px;
-    cursor: default;
-}
-
-.Nav-button {
-    background-color: white;
-    border: none;
-    color: grey;
-    padding: 0px;
-    font-size: 25px;
-    text-align: center;
+.Name {
     text-decoration: none;
-    display: inline-block;
-    -webkit-transition-duration: 0.4s; /* Safari */
-    transition-duration: 0.4s;
-    cursor: pointer;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
 }
 
-.Nav-button:hover {
-    text-decoration: underline;
-    color: black;
+.NavButtonContainer {
+    border-top: 1px solid #4af626;
+    display: flex;
+    justify-content: flex-end;
+    /*border-bottom: 1px solid #4af626;*/
 }
 
 .Logo-button-1 {
@@ -65,11 +35,9 @@
     height: 36px;
     font-size: 20px;
     text-align: center;
-    margin: 0px;
-    padding: 0px;
     border: none;
     display: inline-block;
-    background-color: white;
+    background-color: black;
     cursor: pointer;
 }
 
@@ -78,26 +46,22 @@
     height: 36px;
     font-size: 20px;
     text-align: center;
-    margin: 0px;
-    padding: 0px;
     border: none;
     display: inline-block;
-    background-color: white;
+    background-color: black;
     cursor: pointer;
 }
 
 .fa-linkedin {
-    margin: 0px;
     color:lightgrey;
-    -webkit-transition-duration: 0.4s; /* Safari */
-    transition-duration: 0.4s;
+    -webkit-transition-duration: 0.6s; /* Safari */
+    transition-duration: 0.6s;
 }
 
 .fa-github {
-    margin: 0px;
     color: lightgrey;
-    -webkit-transition-duration: 0.4s; /* Safari */
-    transition-duration: 0.4s;
+    -webkit-transition-duration: 0.6s; /* Safari */
+    transition-duration: 0.6s;
 }
 
 .Logo-button-1:hover .fa-linkedin{
@@ -105,9 +69,6 @@
 }
 
 .Logo-button-2:hover .fa-github{
+    background-color: white;
     color: #211F1F;
-}
-
-.Link-no-underline {
-    text-decoration: none;
 }

@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import NavBar from "../navbar/NavBar";
 import './MoneyMaker.css';
+import Footer from "../footer/Footer";
 
 class MoneyMaker extends Component {i
     constructor(props) {
@@ -46,6 +47,7 @@ class MoneyMaker extends Component {i
                 <p>income per second: {this.state.tickIncrementSecond}</p>
                 <p>seconds passed: {this.state.numTicks}</p>
                 <p>money made: {this.state.moneyMade}</p>
+                <Footer/>
             </div>
         );
     }

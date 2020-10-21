@@ -1,0 +1,16 @@
+.NavButton {
+    background-color: black;
+    border: none;
+    border-bottom: none;
+    color: #4af626;
+    font-size: 18px;
+    font-family: monospace;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.6s;
+    cursor: pointer;
+    margin: 2px;
+}
+
+.NavButton:hover {
+    text-decoration: underline;
+}
