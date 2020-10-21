@@ -41,7 +41,7 @@ class FacePredictionDemo extends Component {
     }
 
     callApi() {
-        const url = '/api/predict'
+        const url = '/api/predict/add'
         const formData = new FormData();
         formData.append('image1', this.state.image1)
         formData.append('image2', this.state.image2)
