@@ -28,7 +28,7 @@ class FacePredictionDemo extends Component {
         const url = '/api/predict/status/' + this.state.id;
         get(url).then(res => {
                 this.setState({
-                    jobstatus: res.data.status
+                    jobstatus: res.data.status + ", please wait..."
                 })
             })
         if (this.state.jobstatus === 'success') {
@@ -79,6 +79,9 @@ class FacePredictionDemo extends Component {
             return;
         
         } else {
+            this.setState( {
+                jobstatus: 'submitting, please wait...'
+            })
             try {
                 this.callApi()
                     .then( res => {
@@ -103,12 +106,14 @@ class FacePredictionDemo extends Component {
         return(
             <div className="App">
                 <NavBar/>
-                <div className='InfoText'>Please upload .png or .jpg file of your face from the front and the side</div>
-                <form onSubmit={this.onFormSubmit}>
-                    <input type='file' onChange={this.onFileChange} id='0' />
-                    <input type='file' onChange={this.onFileChange} id='1' />
-                    <button type='submit'>Upload</button>
-                </form>
+                {!this.state.jobstatus && (<div className='InfoText'>Please upload .png or .jpg file of your face from the front and the side</div>)}
+                {!this.state.jobstatus && (
+                    <form onSubmit={this.onFormSubmit}>
+                        <input type='file' onChange={this.onFileChange} id='0' />
+                        <input type='file' onChange={this.onFileChange} id='1' />
+                        <button type='submit'>Upload</button>
+                    </form>
+                )}
                 <div className='ErrorText'>{this.state.errortext}</div>
                 <div className='JobStatus'>{this.state.jobstatus}</div>
                 <div className='ThreeView'>{this.state.result}</div>
