@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import { post, get } from 'axios';
 import NavBar from "../navbar/NavBar"
+import Footer from "../footer/Footer"
 import "./FacePredictionDemo.css"
 import ThreeScene from '../three-scene/ThreeScene';
 
@@ -111,6 +112,7 @@ class FacePredictionDemo extends Component {
                 <div className='ErrorText'>{this.state.errortext}</div>
                 <div className='JobStatus'>{this.state.jobstatus}</div>
                 <div className='ThreeView'>{this.state.result}</div>
+                <Footer/>
             </div>
         );
     }
